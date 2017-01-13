@@ -25,6 +25,5 @@ d3.queue()
       .data(features)
       .enter()
       .append('path')
-        .attr('d', path)
-        .style('fill', function (d, i) { return colors[i]; });
+        .attr('d', path);
   });
