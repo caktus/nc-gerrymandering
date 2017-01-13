@@ -27,11 +27,144 @@
         </div>
     </div>
 
+    <div class="row">
+      <div class="col s4">
+        <table>
+          <thead>
+            <tr>
+              <td>Party</td>
+              <td>Voter Percentage</td>
+              <td>Congress Percentage</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Democrat</td>
+              <td id='voter-affiliation-democrat'></td>
+              <td id='voter-representation-democrat'></td>
+            </tr>
+            <tr>
+              <td>Republican</td>
+              <td id='voter-affiliation-republican'></td>
+              <td id='voter-representation-republican'></td>
+            </tr>
+            <tr>
+              <td>Libertarian</td>
+              <td id='voter-affiliation-libertarian'></td>
+              <td id='voter-representation-libertarian'></td>
+            </tr>
+            <tr>
+              <td>Unaffiliated</td>
+              <td id='voter-affiliation-unaffiliated'></td>
+              <td id='voter-representation-unaffiliated'></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col s4">
+        <table>
+          <thead>
+            <tr>
+              <td>Race</td>
+              <td>Voter Percentage</td>
+              <td>Congress Percentage</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>White</td>
+              <td id='voter-affiliation-white'></td>
+              <td id='voter-representation-white'></td>
+            </tr>
+            <tr>
+              <td>Black</td>
+              <td id='voter-affiliation-black'></td>
+              <td id='voter-representation-black'></td>
+            </tr>
+            <tr>
+              <td>American Indian</td>
+              <td id='voter-affiliation-americanindian'></td>
+              <td id='voter-representation-americanindian'></td>
+            </tr>
+            <tr>
+              <td>Hispanic</td>
+              <td id='voter-affiliation-hispanic'></td>
+              <td id='voter-representation-hispanic'></td>
+            </tr>
+            <tr>
+              <td>Other</td>
+              <td id='voter-affiliation-other'></td>
+              <td id='voter-representation-other'></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col s4">
+        <table>
+          <thead>
+            <tr>
+              <td>Sex</td>
+              <td>Voter Percentage</td>
+              <td>Congress Percentage</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Male</td>
+              <td id='voter-affiliation-male'></td>
+              <td id='voter-representation-male'></td>
+            </tr>
+            <tr>
+              <td>Female</td>
+              <td id='voter-affiliation-female'></td>
+              <td id='voter-representation-female'></td>
+            </tr>
+          </tbody>
+        </table>
+      <div>
+    </div>
+
 </div>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <!-- Materialize JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <script type="text/javascript">
+    jQuery.getJSON('data/voterData.json', function(data) {
+      var voterData = data;
 
+      /* Do calculations and set the html */
+      // Voter affiliation by party, rounded to 1 decimal value
+      $('#voter-affiliation-democrat').html(Math.round(1000 * voterData.partyAffiliation.democrat/voterData.partyAffiliation.total) / 10 + '%');
+      $('#voter-affiliation-republican').html(Math.round(1000 * voterData.partyAffiliation.republican/voterData.partyAffiliation.total) / 10 + '%');
+      $('#voter-affiliation-libertarian').html(Math.round(1000 * voterData.partyAffiliation.libertarian/voterData.partyAffiliation.total) / 10 + '%');
+      $('#voter-affiliation-unaffiliated').html(Math.round(1000 * voterData.partyAffiliation.unaffiliated/voterData.partyAffiliation.total) / 10 + '%');
+      // Voter representation by party, rounded to 1 decimal value
+      $('#voter-representation-democrat').html(Math.round(1000 * voterData.partyRepresentation.democrat/voterData.partyRepresentation.total) / 10 + '%');
+      $('#voter-representation-republican').html(Math.round(1000 * voterData.partyRepresentation.republican/voterData.partyRepresentation.total) / 10 + '%');
+      $('#voter-representation-libertarian').html(Math.round(1000 * voterData.partyRepresentation.libertarian/voterData.partyRepresentation.total) / 10 + '%');
+      $('#voter-representation-unaffiliated').html(Math.round(1000 * voterData.partyRepresentation.unaffiliated/voterData.partyRepresentation.total) / 10 + '%');
+      // Voter affiliation by race, rounded to 1 decimal value
+      $('#voter-affiliation-white').html(Math.round(1000 * voterData.race.white/voterData.race.total) / 10 + '%');
+      $('#voter-affiliation-black').html(Math.round(1000 * voterData.race.black/voterData.race.total) / 10 + '%');
+      $('#voter-affiliation-americanindian').html(Math.round(1000 * voterData.race.americanindian/voterData.race.total) / 10 + '%');
+      $('#voter-affiliation-hispanic').html(Math.round(1000 * voterData.race.hispanic/voterData.race.total) / 10 + '%');
+      $('#voter-affiliation-other').html(Math.round(1000 * voterData.race.other/voterData.race.total) / 10 + '%');
+      // Voter representation by race, rounded to 1 decimal value
+      $('#voter-representation-white').html(Math.round(1000 * voterData.raceRepresentation.white/voterData.raceRepresentation.total) / 10 + '%');
+      $('#voter-representation-black').html(Math.round(1000 * voterData.raceRepresentation.black/voterData.raceRepresentation.total) / 10 + '%');
+      $('#voter-representation-americanindian').html(Math.round(1000 * voterData.raceRepresentation.americanindian/voterData.raceRepresentation.total) / 10 + '%');
+      $('#voter-representation-hispanic').html(Math.round(1000 * voterData.raceRepresentation.hispanic/voterData.raceRepresentation.total) / 10 + '%');
+      $('#voter-representation-other').html(Math.round(1000 * voterData.raceRepresentation.other/voterData.raceRepresentation.total) / 10 + '%');
+      // Voter affiliation by sex, rounded to 1 decimal value
+      $('#voter-affiliation-male').html(Math.round(1000 * voterData.sex.male/voterData.sex.total) / 10 + '%');
+      $('#voter-affiliation-female').html(Math.round(1000 * voterData.sex.female/voterData.sex.total) / 10 + '%');
+      // Voter representation by sex, rounded to 1 decimal value
+      $('#voter-representation-male').html(Math.round(1000 * voterData.sexRepresentation.male/voterData.sexRepresentation.total) / 10 + '%');
+      $('#voter-representation-female').html(Math.round(1000 * voterData.sexRepresentation.female/voterData.sexRepresentation.total) / 10 + '%');
+    });
+  </script>
 </body>
 </html>
