@@ -2,7 +2,15 @@ var RATIO = 200 / 490;
 var X_TRANSLATE_SCALE = 0.575;
 var COLORS = d3.schemeCategory20;
 
+var __state__ = {
+  selectedColor: COLORS[0]
+};
+
 var dispatch = d3.dispatch('selectColor');
+
+dispatch.on('selectColor.stateUpdate', function (color) {
+  __state__.selectedColor = color;
+});
 
 var $container = d3.select('#map-container');
 var $map = d3.select('#map-mount').append('svg');
@@ -63,11 +71,11 @@ function addPalette () {
           dispatch.call('selectColor', null, d);
         });
 
-  dispatch.on('selectColor', refreshPalette);
-  refreshPalette(null);
+  dispatch.on('selectColor.refreshPalette', refreshPalette);
+  refreshPalette();
 }
 
-function refreshPalette (selected) {
+function refreshPalette () {
   $palette
     .selectAll('rect')
       .data(COLORS)
@@ -77,7 +85,7 @@ function refreshPalette (selected) {
       .attr('y', function (d, i) { return Math.floor(i / 5) * 28})
       .attr('fill', function (d) { return d; })
       .attr('stroke', function (d) {
-        if (d === selected) {
+        if (d === __state__.selectedColor) {
           return 'black';
         } else {
           return null;
