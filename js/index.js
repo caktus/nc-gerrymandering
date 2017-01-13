@@ -102,9 +102,9 @@ document.addEventListener('DOMContentLoaded', function () {
   addPalette();
 
   d3.queue()
-    .defer(d3.json, 'data/2011.geojson')
     .defer(d3.json, 'data/2016.geojson')
-    .await(function (err, data2011, data2016) {
+    .defer(d3.json, 'data/cities.geojson')
+    .await(function (err, data2016, cities) {
       /***
        * Wait until data has loaded, then draw map elements.
        */
