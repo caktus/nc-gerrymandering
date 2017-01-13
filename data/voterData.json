@@ -1,0 +1,42 @@
+{
+  "partyAffiliation": {
+    "democrat": 2736124,
+    "republican": 2099551,
+    "libertarian": 32961,
+    "unaffiliated": 2076361,
+    "total": 	6944997
+  },
+  "race": {
+    "white": 4815248,
+    "black": 1540063,
+    "americanindian": 57211,
+    "other": 532475,
+    "hispanic": 169318,
+    "total": 6944997
+  },
+  "sex": {
+    "male": 3110593,
+    "female": 3675613,
+    "total": 6786206
+  },
+  "partyRepresentation": {
+    "democrat": 3,
+    "republican": 10,
+    "libertarian": 0,
+    "unaffiliated": 0,
+    "total": 13
+  },
+  "raceRepresentation": {
+    "white": 12,
+    "black": 1,
+    "americanindian": 0,
+    "hispanic": 0,
+    "other": 0,
+    "total": 13
+  },
+  "sexRepresentation": {
+    "male": 11,
+    "female": 2,
+    "total": 13
+  }
+}
