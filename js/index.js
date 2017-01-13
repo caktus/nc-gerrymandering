@@ -121,9 +121,10 @@ document.addEventListener('DOMContentLoaded', function () {
 jQuery.getJSON('data/gerrymandering-facts.json', function (data) {
   localStorage.setItem("record", 0);
   localStorage.setItem("jsonData", JSON.stringify(data));
-  $("#facts").html(data[0]["FIELD3"]);
+  $("#facts").html(
+    data[0]["FIELD3"] +
+    " (<a target='_blank' href='" + data[0]["FIELD4"] + "'>source</a>)");
   window.setInterval(function(){
-
     data = JSON.parse(localStorage.getItem("jsonData"));
     current = parseInt(localStorage.getItem("record"));
     if (current==10) {
@@ -132,9 +133,11 @@ jQuery.getJSON('data/gerrymandering-facts.json', function (data) {
     else {
       current+=1;
     }
-    $("#facts").fadeOut();
-    $("#facts").html(data[current]["FIELD3"]);
-    $("#facts").fadeIn("slow");
+    $("#facts").fadeOut(0,
+      $("#facts").html(
+        data[current]["FIELD3"] +
+        " (<a target='_blank' href='" + data[current]["FIELD4"] + "'>source</a>)"));
+    $("#facts").fadeIn(800);
     localStorage.setItem("record", current);
   }, 10000);
 });
