@@ -9,6 +9,7 @@ var _color = new Backbone.Model({
 var $container = d3.select('#map-container');
 var $map = d3.select('#map-mount').append('svg');
 var $palette = d3.select('#palette-mount').append('svg');
+var $tooltip = d3.select('#tooltip');
 var projection = d3.geoConicConformal()
   .parallels([34 + 20 / 60, 36 + 10 / 60])
   .rotate([79, -33 - 45 / 60]);
@@ -54,6 +55,24 @@ function drawMap (features) {
       .on('click', function () {
         d3.select(this)
           .style('fill', function () { return _color.get('selected'); })
+      })
+      .on('mouseover', function (d) {
+        var district = d.properties.district;
+        var x = d3.event.pageX + 5;
+        var y = d3.event.pageY + 5;
+        $tooltip
+          .style('transform', 'translate(' + x + 'px,' + y + 'px)')
+          .style('-webkit-transform', 'translate(' + x + 'px,' + y + 'px)')
+          .transition()
+          .duration(200)
+          .style('opacity', 1);
+        $tooltip.select('span')
+          .html('District ' + d.properties.district);
+      })
+      .on('mouseout', function (d) {
+        $tooltip.transition()
+          .duration(200)
+          .style('opacity', 0);
       });
 }
 
