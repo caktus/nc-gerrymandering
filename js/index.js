@@ -57,16 +57,16 @@ function addPalette () {
       .data(COLORS)
       .enter()
         .append('rect')
-        .attr('width', '24px')
-        .attr('height', '24px')
-        .attr('x', function (d, i) { return ((i % 5) * 28) + 'px' })
-        .attr('y', function (d, i) { return (Math.floor(i / 5) * 28) + 'px'})
+        .attr('width', 24)
+        .attr('height', 24)
+        .attr('x', function (d, i) { return (i % 5) * 28 })
+        .attr('y', function (d, i) { return Math.floor(i / 5) * 28})
         .attr('fill', function (d) { return d; });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   /***
-   * Once the DOM content has loaded, initialize the SVG with
+   * Once the DOM content has loaded, initialize the SVGs with
    * appropriate dimensions.
    */
   resizeMapSVG();
