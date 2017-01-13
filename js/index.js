@@ -2,6 +2,8 @@ var RATIO = 200 / 490;
 var X_TRANSLATE_SCALE = 0.575;
 var COLORS = d3.schemeCategory20;
 
+var dispatch = d3.dispatch('selectColor');
+
 var $container = d3.select('#map-container');
 var $map = d3.select('#map-mount').append('svg');
 var $palette = d3.select('#palette-mount').append('svg');
@@ -57,11 +59,30 @@ function addPalette () {
       .data(COLORS)
       .enter()
         .append('rect')
-        .attr('width', 24)
-        .attr('height', 24)
-        .attr('x', function (d, i) { return (i % 5) * 28 })
-        .attr('y', function (d, i) { return Math.floor(i / 5) * 28})
-        .attr('fill', function (d) { return d; });
+        .on('click', function (d) {
+          dispatch.call('selectColor', null, d);
+        });
+
+  dispatch.on('selectColor', refreshPalette);
+  refreshPalette(null);
+}
+
+function refreshPalette (selected) {
+  $palette
+    .selectAll('rect')
+      .data(COLORS)
+      .attr('width', 24)
+      .attr('height', 24)
+      .attr('x', function (d, i) { return (i % 5) * 28 })
+      .attr('y', function (d, i) { return Math.floor(i / 5) * 28})
+      .attr('fill', function (d) { return d; })
+      .attr('stroke', function (d) {
+        if (d === selected) {
+          return 'black';
+        } else {
+          return null;
+        }
+      });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
