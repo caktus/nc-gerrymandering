@@ -50,7 +50,11 @@ function drawMap (features) {
       .attr('d', path)
     .enter()
       .append('path')
-      .attr('d', path);
+      .attr('d', path)
+      .on('click', function () {
+        d3.select(this)
+          .style('fill', function () { return _color.get('selected'); })
+      });
 }
 
 function addPalette () {
@@ -66,7 +70,7 @@ function addPalette () {
         });
 
   _color.on('change:selected', refreshPalette);
-  
+
   refreshPalette(_color, _color.get('selected'));
 }
 
