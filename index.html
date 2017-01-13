@@ -1,32 +1,66 @@
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
-  <link rel="stylesheet" type="text/css" href="static/styles.css">
-  <!--Import Google Icon Font-->
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Materialize CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Your Gerrymandered NC District</title>
+    <meta name="description" content="Learn about the gerrymandering of the NC congressional districts through fun and interactive coloring.">
+    <meta name="author" content="Caktus Consulting Group">
+    <meta name="keywords" content="NC,politics,maps,coloring">
+    <!-- Open Graph Tags for Facebook -->
+    <meta property="og:title" content="Color Your Gerrymandered NC District" >
+    <meta property="og:type" content="article" >
+    <meta property="og:url" content="https://caktus.github.io/nc-gerrymandering/" >
+    <meta property="og:description" content="Learn about the gerrymandering of the NC congressional districts through fun and interactive coloring." >
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary" >
+    <meta name="twitter:site" content="@caktusgroup" >
+    <meta name="twitter:title" content="Color Your Gerrymandered NC District" >
+    <meta name="twitter:description" content="Learn about the gerrymandering of the NC congressional districts through fun and interactive coloring." >
+    <!-- Site styles -->
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <div class="container">
 
+    <div class="row">
+        <div class="col s12">
+            <h1>Color Your NC Congressional District</h1>
+        </div>
+    </div>
+
     <!--- Map -->
     <div class="row">
-        <div class="col s8">
-            <img src="static/nc_district_map_large_1280.jpg" width="100%" />
+        <div class="col s8" id="map-container">
+            <div id="map-mount"></div>
         </div>
         <div class="col s4">
-            COLORS
+            <div id="palette-mount"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <a class="btn" target="_blank" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fcaktus.github.io%2Fnc-gerrymandering%2F&amp;t=Color%20Your%20NC%20District">
+                <i class="material-icons left">thumb_up</i>Share on Facebook
+            </a>
+            <a class="btn" target="_blank" href="https://twitter.com/share?url=https%3A%2F%2Fcaktus.github.io%2Fnc-gerrymandering%2F&amp;text=Color%20Your%20NC%20District">
+                <i class="material-icons left">chat</i>Share on Twitter
+            </a>
         </div>
     </div>
 
     <!--- Facts -->
     <div class="row">
-        <div class="col s12 facts">
-            FACTS!FACTS!FACTS!FACTS!FACTS!FACTS!FACTS!FACTS!FACTS!FACTS!FACTS!FACTS!FACTS!FACTS!FACTS!FACTS!FACTS!FACTS!FACTS! FACTS!  FACTS!   FACTS! !!
-        </div>
+        <div id="facts" class="col s12 facts"></div>
     </div>
 
+    <!-- Voter stats tables -->
     <div class="row">
       <div class="col s4">
         <table>
@@ -131,6 +165,12 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <!-- Materialize JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+  <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+  <script src="http://underscorejs.org/underscore-min.js"></script>
+  <script src="http://backbonejs.org/backbone-min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="js/index.js"></script>
   <script type="text/javascript">
     jQuery.getJSON('data/voterData.json', function(data) {
       var voterData = data;
@@ -166,5 +206,6 @@
       $('#voter-representation-female').html(Math.round(1000 * voterData.sexRepresentation.female/voterData.sexRepresentation.total) / 10 + '%');
     });
   </script>
+
 </body>
 </html>
