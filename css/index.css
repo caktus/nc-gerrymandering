@@ -14,3 +14,7 @@
   left: 0;
   top: 0;
 }
+
+#tooltip:hover {
+  opacity: 1 !important;
+}
