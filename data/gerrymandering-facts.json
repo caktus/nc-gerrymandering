@@ -1,0 +1,68 @@
+[
+ {
+   "FIELD1": "1",
+   "FIELD2": "Political",
+   "FIELD3": "Gerrymandering Definition: the dividing of a state, county, etc., into election districts so as to give one political party a majority in many districts while concentrating the voting strength of the other party into as few districts as possible.",
+   "FIELD4": ""
+ },
+ {
+   "FIELD1": "2",
+   "FIELD2": "Political",
+   "FIELD3": "Partisan gerrymandering is commonly used to increase the power of a political party",
+   "FIELD4": "https://en.wikipedia.org/wiki/Gerrymandering_in_the_United_States"
+ },
+ {
+   "FIELD1": "4",
+   "FIELD2": "Political",
+   "FIELD3": "Partisan gerrymandering refers to redistricting that favors one political party",
+   "FIELD4": "https://en.wikipedia.org/wiki/Gerrymandering_in_the_United_States"
+ },
+ {
+   "FIELD1": "3",
+   "FIELD2": "Political",
+   "FIELD3": "Bipartisan gerrymandering refers to redistricting that favors keeping incumbents in their active seats in both the Democratic and Republican Parties.",
+   "FIELD4": "https://en.wikipedia.org/wiki/Gerrymandering_in_the_United_States"
+ },
+ {
+   "FIELD1": "5",
+   "FIELD2": "Political",
+   "FIELD3": "The United States is alone among major countries in that self-interested politicians govern the redistricting process.",
+   "FIELD4": "https://en.wikipedia.org/wiki/Gerrymandering_in_the_United_States"
+ },
+ {
+   "FIELD1": "6",
+   "FIELD2": "Political",
+   "FIELD3": "The term is named after early 19th century Massachusetts Governor Elbridge Gerry who redrew the map of the senate's districts in 1810 in order to weaken the opposing Federalist party.",
+   "FIELD4": "https://www.washingtonpost.com/news/wonk/wp/2016/01/13/this-is-actually-what-america-would-look-like-without-gerrymandering/?utm_term=.cab47d4996c7"
+ },
+ {
+   "FIELD1": "7",
+   "FIELD2": "Political",
+   "FIELD3": "In 2010, a software engineer in Massachusetts named Brian Olson wrote a program to draw \"optimally compact\" equal-population congressional districts in each state, based on census blocks. He stated that this created an efficient system that can solve for compact, impartial, non-gerrymandered districts.",
+   "FIELD4": "https://www.washingtonpost.com/news/wonk/wp/2014/06/03/this-computer-programmer-solved-gerrymandering-in-his-spare-time/?utm_term=.379fd5277f74"
+ },
+ {
+   "FIELD1": "8",
+   "FIELD2": "Political ",
+   "FIELD3": "According to geospatial firm Azavea, with a study on redistricting completed in 2012, North Carolina had the most Gerrymandered Districts In America.",
+   "FIELD4": "https://www.buzzfeed.com/qsahmed/the-10-most-gerrymandered-districts-in-america-dh45?utm_term=.bi1o7ZdPG4#.ohjy7jqBlA"
+ },
+ {
+   "FIELD1": "9",
+   "FIELD2": "Political",
+   "FIELD3": "According to Azavea, if you were to drive from one major city (Charlotte) in this district to the other (Greensboro) using the major highway Interstate 85, you would cross in and out of NC District 12 four times.",
+   "FIELD4": "https://www.buzzfeed.com/qsahmed/the-10-most-gerrymandered-districts-in-america-dh45?utm_term=.bi1o7ZdPG4#.ohjy7jqBlA"
+ },
+ {
+   "FIELD1": "10",
+   "FIELD2": "Political",
+   "FIELD3": "In the state of North Carolina, there are 2.7 million registered Democrats, 2.07 million registered Republicans, 2.05 million Unaffiliated voters and around 32,000 Libertarians. ",
+   "FIELD4": "https://www.govtrack.us/congress/members/NC"
+ },
+ {
+   "FIELD1": "11",
+   "FIELD2": "Political",
+   "FIELD3": "North Carolina currently (in 2016) has elected 2 Republican senators, and out of 12 Representatives only 3 are Democrats. ",
+   "FIELD4": "https://www.govtrack.us/congress/members/NC"
+ }
+]
