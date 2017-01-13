@@ -2,14 +2,8 @@ var RATIO = 200 / 490;
 var X_TRANSLATE_SCALE = 0.575;
 var COLORS = d3.schemeCategory20;
 
-var __state__ = {
-  selectedColor: COLORS[0]
-};
-
-var dispatch = d3.dispatch('selectColor');
-
-dispatch.on('selectColor.stateUpdate', function (color) {
-  __state__.selectedColor = color;
+var _color = new Backbone.Model({
+  selected: COLORS[0]
 });
 
 var $container = d3.select('#map-container');
@@ -68,14 +62,15 @@ function addPalette () {
       .enter()
         .append('rect')
         .on('click', function (d) {
-          dispatch.call('selectColor', null, d);
+          _color.set('selected', d)
         });
 
-  dispatch.on('selectColor.refreshPalette', refreshPalette);
-  refreshPalette();
+  _color.on('change:selected', refreshPalette);
+  
+  refreshPalette(_color, _color.get('selected'));
 }
 
-function refreshPalette () {
+function refreshPalette (model, selected) {
   $palette
     .selectAll('rect')
       .data(COLORS)
@@ -85,7 +80,7 @@ function refreshPalette () {
       .attr('y', function (d, i) { return Math.floor(i / 5) * 28})
       .attr('fill', function (d) { return d; })
       .attr('stroke', function (d) {
-        if (d === __state__.selectedColor) {
+        if (d === selected) {
           return 'black';
         } else {
           return null;
